@@ -31,6 +31,7 @@ docs.push(docTwo);
 console.log("Hi", docOne.format());
  */
 import { Invoice } from "./classes/invoice.js"; // Must be .js!
+import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/payment.js";
 const invoiceOne = new Invoice("Mario", "work on website", 350);
 const invoiceTwo = new Invoice("Luigi", "work on website", 200);
@@ -46,6 +47,8 @@ const type = document.querySelector("#type");
 const tofrom = document.querySelector("#tofrom");
 const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
+const ul = document.querySelector(".item-list");
+const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     let doc;
@@ -56,4 +59,5 @@ form.addEventListener("submit", (e) => {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
     console.log(doc);
+    list.render(doc, type.value, "end");
 });
