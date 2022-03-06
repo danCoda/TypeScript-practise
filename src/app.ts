@@ -1,4 +1,4 @@
-interface IsPerson {
+/* interface IsPerson {
   name: string;
   age: number;
   speak(a: string): void;
@@ -17,9 +17,6 @@ const me: IsPerson = {
   }
 }
 
-import { Invoice } from "./classes/invoice.js"; // Must be .js!
-import { Payment } from "./classes/payment.js";
-import {HasFormatter} from "./interfaces/HasFormatter.js";
 
 let docOne: HasFormatter;
 let docTwo: HasFormatter;
@@ -32,7 +29,11 @@ docs.push(docOne);
 docs.push(docTwo);
 
 console.log("Hi", docOne.format());
+ */
 
+import { Invoice } from "./classes/invoice.js"; // Must be .js!
+import { Payment } from "./classes/payment.js";
+import {HasFormatter} from "./interfaces/HasFormatter.js";
 
 const invoiceOne = new Invoice("Mario", "work on website", 350);
 const invoiceTwo = new Invoice("Luigi", "work on website", 200);
@@ -41,13 +42,11 @@ const invoices: Invoice[] = [];
 invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
 
-//console.log(invoiceOne.client);
-console.log(invoiceOne.details);
-//invoiceOne.amount = 500;
+//console.log(invoiceOne.client); // Won't work, as client is private.
+//console.log(invoiceOne.details);
+//invoiceOne.amount = 500; // Won't work, as amount is readonly.
 
-//const form = document.querySelector('form')!;
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
-console.log(form.children);
 
 // inputs
 const type = document.querySelector("#type") as HTMLInputElement;
@@ -58,5 +57,13 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 
-  console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+  let doc: HasFormatter;
+
+  if(type.value === "invoice") {
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+  } else {
+    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+  }
+
+  console.log(doc);
 });
