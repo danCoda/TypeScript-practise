@@ -10,6 +10,14 @@ const me = {
     }
 };
 import { Invoice } from "./classes/invoice.js"; // Must be .js!
+let docOne;
+let docTwo;
+docOne = new Invoice("Dan", "studying", 300);
+docTwo = new Invoice("James", "sicking", 100);
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
+console.log("Hi", docOne.format());
 const invoiceOne = new Invoice("Mario", "work on website", 350);
 const invoiceTwo = new Invoice("Luigi", "work on website", 200);
 const invoices = [];

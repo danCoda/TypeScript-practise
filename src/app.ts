@@ -18,6 +18,21 @@ const me: IsPerson = {
 }
 
 import { Invoice } from "./classes/invoice.js"; // Must be .js!
+import { Payment } from "./classes/payment.js";
+import {HasFormatter} from "./interfaces/HasFormatter.js";
+
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
+
+docOne = new Invoice("Dan", "studying", 300);
+docTwo = new Invoice("James", "sicking", 100);
+
+let docs: HasFormatter[] = [];
+docs.push(docOne);
+docs.push(docTwo);
+
+console.log("Hi", docOne.format());
+
 
 const invoiceOne = new Invoice("Mario", "work on website", 350);
 const invoiceTwo = new Invoice("Luigi", "work on website", 200);
