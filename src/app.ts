@@ -1,3 +1,22 @@
+interface IsPerson {
+  name: string;
+  age: number;
+  speak(a: string): void;
+  spend(a: number): number;
+}
+// Interfaces are just used to 'describe' only, while Classes are used to create new objects. Very subtle difference...
+
+const me: IsPerson = {
+  name: "Dan",
+  age: 34,
+  speak(text: string) {
+    return 23;
+  },
+  spend(amount: number) {
+    return amount;
+  }
+}
+
 import { Invoice } from "./classes/invoice.js"; // Must be .js!
 
 const invoiceOne = new Invoice("Mario", "work on website", 350);

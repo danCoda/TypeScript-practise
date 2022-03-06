@@ -1,3 +1,14 @@
+// Interfaces are just used to 'describe' only, while Classes are used to create new objects. Very subtle difference...
+const me = {
+    name: "Dan",
+    age: 34,
+    speak(text) {
+        return 23;
+    },
+    spend(amount) {
+        return amount;
+    }
+};
 import { Invoice } from "./classes/invoice.js"; // Must be .js!
 const invoiceOne = new Invoice("Mario", "work on website", 350);
 const invoiceTwo = new Invoice("Luigi", "work on website", 200);

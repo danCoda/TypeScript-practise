@@ -1,4 +1,6 @@
-export class Invoice {
+import { HasFormatter } from "../interfaces/HasFormatter.js";
+
+export class Invoice implements HasFormatter {
   /* private client: string;
     details: string;
     readonly amount: number;
@@ -16,6 +18,6 @@ export class Invoice {
   ) {}
 
   format() {
-    return `${this.client} owes $${this.amount} for ${details}`;
+    return `${this.client} owes $${this.amount} for ${this.details}`;
   }
 }
